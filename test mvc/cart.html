@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" defer>
+    <script src="https://kit.fontawesome.com/96d3fd8f4a.js" crossorigin="anonymous"></script>
+    
+    <title>Panier</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="title">Orinoco</h1> 
+        </div>
+        <nav>
+            <ul class="d-flex justify-content-around list-unstyled">
+                <li><a href="index.html" class="nav-link active h6">Accueil</a></li>
+                <li><a href="cart.html" class="nav-link active h6">Panier</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="panierFull">
+            <div id="main" class="container">    
+            </div>
+            <div class="container">
+                <div id = "prixTotal" class="bg-dark mb-1 text-white row">
+                    <span id="sum"></span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" id="btnCommander" class="btn btn-primary ">Commander</button>
+            </div>
+        </section>
+        <section id="formContainer">
+            <h2>Formulaire de commande</h2>
+            <!--Formulaire ici-->
+            <form id="form" class="m-4" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="firstName">Prénom :</label>
+                        <input type="text" name="firstName" id="firstName" class="form-control" required='required' maxlength="25" pattern="[a-zA-Zàäâçéèëêïîôöùû -]{2,25}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastName">Nom :</label>
+                        <input type="text" name="lastName" id="lastName" class="form-control" required='required'  maxlength="25" pattern="[a-zA-Zàäâçéèëêïîôöùû -]{2,25}">
+                </div>
+                </div>
+                <div class="form-group">
+                        <label for="address">Adresse de livraison :</label>
+                        <input type="text" name="address" id="address" class="form-control" required='required' pattern="[0-9a-zA-Zàäâçéèëêïîôöùû -]{2,150}">
+                </div>
+                <div class="form-group">
+                        <label for="city">Ville :</label>
+                        <input type="text" name="city" id="city" class="form-control" required='required'  pattern="[A-Za-z -]{2,70}">
+                </div>
+                <div class="form-group">
+                        <label for="email">Adresse mail :</label>
+                        <input type="email" name="email" id="email" class="form-control" required='required' maxlength="70" >
+                </div>
+                <input id="formButton" type="submit" value="Confirmer la commande" class="btn btn-primary">
+            </form>
+        </section>
+    </main>
+    <footer class="bg-secondary mt-1">
+        <ul class="text-white mb-0 d-flex justify-content-around list-unstyled">
+            <li class="my-2">A propos</li>
+            <li class="my-2">Assistance</li>
+            <li class="my-2">Centre d'aide</li>
+        </ul>	
+    </footer>
+    <script type="text/javascript" src="controller.js"></script>
+    <script type="text/javascript" src="model.js"></script>
+    <script type="text/javascript" src="view/productCart.js"></script>
+    <script>
+        let controller = new Controller;
+        controller.productCartPage();
+    </script>
+</body>
+</html>

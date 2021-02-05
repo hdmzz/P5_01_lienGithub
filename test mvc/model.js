@@ -17,7 +17,19 @@ class Model {
         });
 }
 
-static fetchPost(apiUrl){
-    
+static fetchPost(apiUrl, contact, products){
+    return fetch (apiUrl, 
+        {
+            method: 'POST',
+            headers: 
+            {
+                'Content-Type':'application/json'
+            },
+            body: (JSON.stringify({contact, products})),
+        })
+        .then(function(response){
+            return response.text();
+        })
+        
 }
 }

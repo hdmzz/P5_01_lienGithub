@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+.title{
+    font-family: "Shrikhand", serif;
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    font-size:medium;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: #fff;
+    -webkit-box-shadow: 0 0 0.25rem 0.125rem #777;
+            box-shadow: 0 0 0.25rem 0.125rem #777;
+    margin: 0;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 5vw;
+  }
+
+ #panier{
+    padding-right: 15px;
+ }
+
+ .ligne{
+     display: flex;
+     justify-content: space-between;
+ }
+
+ a{
+     color: #000;
+     text-decoration: none;
+ }
+ a:hover{
+     text-decoration: none;
+ }
+
+article.carte{
+   display: flex;
+}
+
+input:invalid {
+    border: 2px dashed red;
+  }
+  
+  input:valid {
+    border: 1px solid black;
+  }
+
+  .titleFooter {
+    font-family: "Shrikhand", serif;
+    font-size: medium;
+}

@@ -20,7 +20,7 @@ class ProductCart {
     showCartShopping(teddie){
         let mainConteneur = document.getElementById('main');
         let containeur = document.createElement('div');
-        containeur.className = 'row mb-5'
+        containeur.className = 'row mb-5';
         let imgContaineur = document.createElement('div');
         imgContaineur.className = 'col-3';
         let img = document.createElement('img');
@@ -32,13 +32,13 @@ class ProductCart {
         //nom
         let nameDiv = document.createElement('div');
         nameDiv.className = 'col-7';
-        let name = document.createElement('p')
+        let name = document.createElement('p');
         name.innerHTML = teddie.name;
         containeur.appendChild(nameDiv);
         nameDiv.appendChild(name);
         //Prix 
         let priceDiv = document.createElement('div');
-        priceDiv.className = 'col-2'
+        priceDiv.className = 'col-2';
         let price = document.createElement('p');
         price.innerHTML = `${teddie.price/100}€`;
         containeur.appendChild(priceDiv);
@@ -66,8 +66,8 @@ class ProductCart {
         
         btnCommander.addEventListener('click', () => {
             let formSection = document.getElementById('formContainer');
-            formSection.setAttribute ('style', 'display:initial;')
-            panierSection.setAttribute("style", "display:none;")
+            formSection.setAttribute ('style', 'display:initial;');
+            panierSection.setAttribute("style", "display:none;");
         });
     };
     submitForm(panier){
@@ -75,8 +75,12 @@ class ProductCart {
         form.addEventListener('submit', () => {
             let contact = this.contactConstructor();
             let products = this.productConstructor(panier);
-            localStorage.setItem('contact', JSON.stringify(contact));
-            localStorage.setItem('products', JSON.stringify(products));
+            if(contact == null || products == null){
+                throw "erreur objet de la requete";
+            } else {
+                localStorage.setItem('contact', JSON.stringify(contact));
+                localStorage.setItem('products', JSON.stringify(products)); 
+            }
         });
     };
     contactConstructor(){

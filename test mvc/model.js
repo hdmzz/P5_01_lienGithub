@@ -9,6 +9,7 @@ class Model {
                         resolve(content);
                     } else {
                         reject(xhr);
+                        throw 'response not Ok';
                     } 
                 }
             }
@@ -28,7 +29,12 @@ static fetchPost(apiUrl, contact, products){
             body: (JSON.stringify({contact, products})),
         })
         .then(function(response){
-            return response.text();
+            if(response.ok){
+                return response.text();
+            } else {
+                throw "response not Ok";
+            }
+            
         })
         
 }

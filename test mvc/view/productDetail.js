@@ -21,7 +21,7 @@ class ProductDetail{
         nameDiv.className = 'card-title h2';
         nameDiv.innerHTML = data.name;
         specs.appendChild(nameDiv);
-        //ajout des prix
+        //Ajout des prix
         let priceDiv = document.createElement('p');
         priceDiv.className = 'card-text h3 mb-1';
         priceDiv.innerHTML = `${data.price/100}€`;
@@ -48,7 +48,7 @@ class ProductDetail{
         colors.id = 'colors'
         colors.name = 'colors';
         divInputs.appendChild(colors);
-        //
+        //Option Ok
         let teddieColors = data.colors;//recupe des choix de couleurs
         teddieColors.map(color => {
             let optionColor = document.createElement('option')
@@ -79,7 +79,6 @@ class ProductDetail{
     
     addItemToCart(myTeddie){
         let panier = localStorage.getItem('panier')
-        console.log(panier);
         if (panier == null){
             panier = [];
         } else {

@@ -1,5 +1,8 @@
 class ProductOrderConfirm{
     orderConfirm(orderResponse){
+        if(orderResponse == undefined){
+            throw 'orderResponse non définie';
+        }
         console.log(orderResponse.orderId);
         let orderId = orderResponse.orderId;
         console.log(orderId);
@@ -7,6 +10,7 @@ class ProductOrderConfirm{
         ref.innerHTML = `La référence de votre commande est ${orderId}`;
         //recupération du panier pour totalPrice
         let panier = JSON.parse(localStorage.getItem('panier'));
+
         this.totalPrice(panier);
         localStorage.clear();
     }

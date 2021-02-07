@@ -1,41 +1,37 @@
 class Model {
+    //Requête pour récupérer les produits 
     static fetchGet(apiUrl){
-        return new Promise(function(resolve, reject) {
-            let xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === xhr.DONE) {
-                    if (xhr.status === 200) { 
-                        let content = JSON.parse(xhr.responseText)
-                        resolve(content);
-                    } else {
-                        reject(xhr);
-                        throw 'response not Ok';
-                    } 
+        return fetch(apiUrl)
+            .then(function(response){
+                if(response.ok){
+                    return response.json();
                 }
-            }
-            xhr.open('GET', apiUrl);
-            xhr.send();
-        });
-}
+                if(!response.ok){
+                    throw `Fonction Fetch Get n'aboutit pas erreur ${response.status} ${response.statusText}`;
+                }
+            })
+    };
 
-static fetchPost(apiUrl, contact, products){
-    return fetch (apiUrl, 
-        {
-            method: 'POST',
-            headers: 
+
+    //Requête envoie des objets contact et products et retour du serveur avec orderID
+    static fetchPost(apiUrl, contact, products){
+        return fetch (apiUrl, 
             {
-                'Content-Type':'application/json'
-            },
-            body: (JSON.stringify({contact, products})),
-        })
-        .then(function(response){
-            if(response.ok){
-                return response.text();
-            } else {
-                throw "response not Ok";
-            }
+                method: 'POST',
+                headers: 
+                {
+                    'Content-Type':'application/json'
+                },
+                body: (JSON.stringify({contact, products})),
+            })
+            .then(function(response){
+                if(response.ok){
+                    return response.text();
+                } 
+                if(!response.ok){
+                    throw `Fonction Fetch Post n'aboutit pas erreur ${response.status} ${response.statusText}`
+                }
+            })
             
-        })
-        
-}
+    }
 }

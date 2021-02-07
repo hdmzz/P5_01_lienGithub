@@ -1,17 +1,17 @@
 class ProductDetail{
     showTeddiesDetails(data){
         console.log(data);
-        // creation d'un article conteneur des info du produit
+        //Création d'un article conteneur des info du produit
         let mainContainer = document.getElementById('main');
         let article = document.createElement('div');
         article.className ='card col-10 col-md-8 px-0 mx-auto';
         mainContainer.appendChild(article);
-        // insertion de l'image
+        //Insertion de l'image
         let img = document.createElement('img');
         img.className = 'card-img-top';
         img.src = data.imageUrl;
         article.appendChild(img);
-        //creation d'une div pour les specificitées
+        //Creation d'une div pour les specificitées
         let specs = document.createElement('div');
         specs.id ='desPrNo';
         specs.className = 'card-body'
@@ -26,30 +26,29 @@ class ProductDetail{
         priceDiv.className = 'card-text h3 mb-1';
         priceDiv.innerHTML = `${data.price/100}€`;
         specs.appendChild(priceDiv);
-        //Description
+        //Ajout de la déscription
         let description = document.createElement('p');
         description.className = 'card-text';
         description.innerHTML = data.description;
         console.log(data.description);
         specs.appendChild(description);
         //Ajout des options
-        //let selectBtn =  document.getElementById('selectColors');
         let divInputs = document.createElement('div');
         divInputs.className ='inputs';
         specs.appendChild(divInputs);
-        //Label Colors
+        //Label pour les couleurs
         let label = document.createElement('label');
         label.for = 'colors';
         label.name = 'colors';
         label.innerHTML = 'Choix des couleurs : ';
         divInputs.appendChild(label);
-        //Colors
+        //Création d'un select pour les couleurs
         let colors = document.createElement('select');
         colors.id = 'colors'
         colors.name = 'colors';
         divInputs.appendChild(colors);
-        //Option Ok
-        let teddieColors = data.colors;//recupe des choix de couleurs
+        //Récupération des option de couleur 
+        let teddieColors = data.colors;
         teddieColors.map(color => {
             let optionColor = document.createElement('option')
             optionColor.value = color;
@@ -65,7 +64,7 @@ class ProductDetail{
         ajoutPanier.addEventListener('click', () => this.addToCart(data));
     };
     
-    // declaration d'un objet qu l'on va stringifier après
+    // Déclaration d'un objet qu l'on va stringifier après pour envoie sur le local storage
     addToCart(data){
         const myTeddie = {
             id: data._id,
@@ -74,9 +73,10 @@ class ProductDetail{
             description: data.description,
             price: data.price,
         }
+        alert('Vous avez ajouté ce produit au panier');
         this.addItemToCart(myTeddie)
     }
-    
+    //Push de l'article dans un tableau puis envoie sur le localstorage
     addItemToCart(myTeddie){
         let panier = localStorage.getItem('panier')
         if (panier == null){

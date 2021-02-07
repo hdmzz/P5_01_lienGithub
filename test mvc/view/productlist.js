@@ -1,6 +1,7 @@
 class ProductListView {
     showTeddies(teddies){
-        // création du conteneur de chaque article 
+        console.log(teddies);
+        //Création du conteneur de chaque article 
         let mainContainer = document.getElementById('main');
         let cardContaineur = document.createElement('div');
         cardContaineur.className ='card col-md-5 m-4 text-center px-0';
@@ -10,7 +11,7 @@ class ProductListView {
         img.className ='img-fluid';
         img.src = `${teddies.imageUrl}`;
         cardContaineur.appendChild(img);
-        //Ajout des nom
+        //Ajout des noms
         let contentDiv = document.createElement('div');
         contentDiv.className = 'card-body bg-light';
         cardContaineur.appendChild(contentDiv);
@@ -18,23 +19,20 @@ class ProductListView {
         nameDiv.className ='card-title';
         contentDiv.appendChild(nameDiv);
         nameDiv.innerHTML = teddies.name;
-        //ajout de la description
+        //Ajout de la description
         let description = document.createElement('p');
         description.className = 'card-text';
         description.innerHTML = teddies.description;
         contentDiv.appendChild(description);
-
-        //ajout des prix
+        //Ajout des prix
         let priceDiv = document.createElement('p');
         priceDiv.className = 'card-text h3';
         priceDiv.innerHTML = `${teddies.price/100}€`;
         contentDiv.appendChild(priceDiv);
-
-        //streched link
+        //Streched link
         let article = document.createElement('a');
         article.href = `product.html?id=${teddies._id}`;
         article.className ='stretched-link';
         contentDiv.appendChild(article);
     }
-    
 }

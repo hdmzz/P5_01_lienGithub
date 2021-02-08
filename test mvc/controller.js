@@ -44,17 +44,17 @@ class Controller {
             let orderResponse = JSON.parse(order);
             this.productOrderConfirm(orderResponse);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 
     async orderIdRequest(contact, products){
         // Requête Post envoie les deux objets au serveur et retourne une réponse avec l'orderId
         try {
-            let requestPost = await Model.fetchPost('http://localhost:3000/api/teddies/order', contact, products)
-            return requestPost
+            let requestPost = await Model.fetchPost('http://localhost:3000/api/teddies/order', contact, products);
+            return requestPost;
         } catch (error) {
-            throw (error) 
+            throw (error);
         }
     }
 
@@ -64,7 +64,7 @@ class Controller {
             let view = new ProductOrderConfirm;
             view.orderConfirm(orderResponse);
         } catch (error) {
-            throw(error)
+            throw error;
         }
     }
 }

@@ -9,12 +9,13 @@ class ProductDetail{
         //Insertion de l'image
         let img = document.createElement('img');
         img.className = 'card-img-top';
+        img.alt = `Photo de l'ours en peluche nommé ${data.name}`;
         img.src = data.imageUrl;
         article.appendChild(img);
         //Creation d'une div pour les specificitées
         let specs = document.createElement('div');
         specs.id ='desPrNo';
-        specs.className = 'card-body'
+        specs.className = 'card-body';
         article.appendChild(specs);
         // Ajout du noms
         let nameDiv = document.createElement('p');
@@ -44,7 +45,7 @@ class ProductDetail{
         divInputs.appendChild(label);
         //Création d'un select pour les couleurs
         let colors = document.createElement('select');
-        colors.id = 'colors'
+        colors.id = 'colors';
         colors.name = 'colors';
         divInputs.appendChild(colors);
         //Récupération des option de couleur 
@@ -58,8 +59,9 @@ class ProductDetail{
         //Bouton ajout panier
         let ajoutPanier = document.createElement('button');
         ajoutPanier.id = 'btnAjouter';
-        ajoutPanier.className = 'btn btn-primary mt-2'
-        ajoutPanier.innerHTML = 'Ajouter au panier'
+        ajoutPanier.className = 'btn btn-primary mt-2';
+        ajoutPanier.alt = 'Ajouter au panier';
+        ajoutPanier.innerHTML = 'Ajouter au panier';
         specs.appendChild(ajoutPanier);
         ajoutPanier.addEventListener('click', () => this.addToCart(data));
     };

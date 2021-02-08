@@ -10,6 +10,9 @@ class ProductOrderConfirm{
         ref.innerHTML = `La référence de votre commande est ${orderId}`;
         //Récupération du panier pour totalPrice
         let panier = JSON.parse(localStorage.getItem('panier'));
+        if (panier == undefined){
+            throw 'panier non définie';
+        }
         this.totalPrice(panier);
         // On efface le local storage
         localStorage.clear();

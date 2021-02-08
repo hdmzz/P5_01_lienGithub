@@ -9,7 +9,8 @@ class ProductListView {
         //Ajout de l'image
         let img = document.createElement('img');
         img.className ='img-fluid';
-        img.src = `${teddies.imageUrl}`;
+        img.alt = `Photo de l'ours en peluche nommé ${teddies.name}`;
+        img.src = teddies.imageUrl;
         cardContaineur.appendChild(img);
         //Ajout des noms
         let contentDiv = document.createElement('div');

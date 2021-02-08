@@ -29,7 +29,7 @@ class Model {
                     return response.text();
                 } 
                 if(!response.ok){
-                    throw `Fonction Fetch Post n'aboutit pas erreur ${response.status} ${response.statusText}`
+                    throw `Fonction Fetch Post n'aboutit pas erreur ${response.status} ${response.statusText}`;
                 }
             })
             

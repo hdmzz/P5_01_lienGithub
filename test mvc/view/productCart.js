@@ -96,14 +96,15 @@ class ProductCart {
             city: document.getElementById('city').value,
             email: document.getElementById('email').value,
         }
-        console.log(contact)
-        return contact
+        console.log(contact);
+        return contact;
     };
     //Constuit un tablau d'id pour envoie au serveur
     productConstructor(panier){
     let products = [];
     panier.map(teddie => products.push(teddie.id));
     console.log(products);
+    console.log(typeof products)
     return products;
     };
 }
